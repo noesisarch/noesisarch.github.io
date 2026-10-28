@@ -1,0 +1,550 @@
+<title>Noesis by Anastasia Orlova</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Noesis by Anastasia Orlova. Urban planner and designer of public and interior spaces. Education at the Politecnico of Turin and the Politecnico of Barcelona.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Editorial architecture portfolio. Quiet warm paper, large light serif display, hairline rules,
+   image-led layouts with staggered frames. One dark walnut band for the contact form. */
+:root {
+  --bg: #f5f2eb;
+  --bg-2: #ebe6da;
+  --ink: #1f1b17;
+  --ink-2: #5d564c;
+  --line: #d6cfbf;
+  --accent: #8a4b32;
+  --band: #2b221c;
+  --band-ink: #f3eee4;
+  --band-ink-2: #c9bfae;
+  --band-line: rgba(243, 238, 228, .32);
+  --shade: rgba(16, 13, 10, .9);
+  --f-serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --f-sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15120f; --bg-2: #1e1a16; --ink: #efe9de; --ink-2: #a79e90; --line: #37312a; --accent: #d49a7d; --band: #0f0d0b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15120f; --bg-2: #1e1a16; --ink: #efe9de; --ink-2: #a79e90; --line: #37312a; --accent: #d49a7d; --band: #0f0d0b;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-sans); font-size: 17px; line-height: 1.65; font-weight: 400; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--f-serif); font-weight: 300; margin: 0; line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { width: 100%; max-width: 1440px; margin-inline: auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+section { scroll-margin-top: 64px; }
+
+/* header */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.mark { text-decoration: none; display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+.mark b { font-family: var(--f-serif); font-weight: 400; font-size: 27px; letter-spacing: .01em; }
+.mark i { font-family: var(--f-serif); font-style: italic; font-weight: 300; font-size: 22px; color: var(--ink-2); text-transform: none; letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); }
+.nav a { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding-block: 6px; border-bottom: 1px solid transparent; }
+.nav a:hover { border-color: var(--ink); }
+.theme-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.theme-btn:hover { border-color: var(--ink); }
+.theme-btn svg { width: 15px; height: 15px; }
+
+
+/* 1. opening */
+.hero { padding-block: clamp(32px, 5vw, 72px) clamp(40px, 6vw, 88px); }
+.hero h1 { font-size: clamp(3rem, 8.4vw, 8rem); line-height: .94; letter-spacing: -.028em; max-width: 12em; margin-bottom: clamp(28px, 4vw, 56px); }
+.hero h1 em { color: var(--accent); }
+.reel { overflow-x: auto; scrollbar-width: none; }
+.reel::-webkit-scrollbar { display: none; }
+.reel-track { display: flex; gap: clamp(10px, 1.4vw, 20px); width: max-content; align-items: flex-start; will-change: transform; }
+.reel-fallback { width: 100%; max-width: 100%; height: auto; }
+.reel.live { overflow: hidden; cursor: ew-resize; }
+.reel.live .reel-track { align-items: center; }
+.tile { margin: 0; flex: none; height: clamp(230px, 46vh, 480px); overflow: hidden; background: var(--bg-2); transition: transform .5s cubic-bezier(.2,.6,.2,1), opacity .4s, filter .4s; }
+.tile img { height: 100%; width: auto; display: block; }
+.reel.live.paused .tile { opacity: .55; }
+.reel.live .tile.hot { opacity: 1; transform: scale(1.05); position: relative; z-index: 2; }
+.reel.live .tile.held { transform: scale(1.08); box-shadow: 0 18px 50px rgba(0,0,0,.28); }
+.reel-hint { margin-top: 16px; }
+@media (hover: none) { .reel-hint { display: none; } }
+/* 2. about */
+.about { padding-block: clamp(36px, 5vw, 72px); border-top: 1px solid var(--ink); }
+.about-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(24px, 5vw, 80px); align-items: start; }
+.about .portrait { margin: 0; width: 100%; }
+.about .portrait img { display: block; width: 100%; height: auto; }
+.about .portrait { max-width: 300px; }
+.about h2, .principles h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: -.02em; line-height: .98; margin: 14px 0 clamp(16px, 2vw, 26px); }
+.about h2 { font-size: clamp(2rem, 3.6vw, 3.2rem); margin-bottom: clamp(12px, 1.6vw, 20px); }
+.about .lead { font-family: var(--f-serif); font-size: clamp(1.4rem, 2.1vw, 1.9rem); font-weight: 300; line-height: 1.25; text-wrap: pretty; max-width: 30em; }
+.about .body { margin-top: 14px; color: var(--ink-2); max-width: 62ch; font-size: .98rem; line-height: 1.55; }
+/* 3. principles */
+.principles { padding-block: clamp(56px, 8vw, 120px); border-top: 1px solid var(--ink); }
+.about-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.about-cols > div { padding: 26px clamp(16px, 2.4vw, 36px) 8px 0; }
+.about-cols > div + div { border-left: 1px solid var(--line); padding-left: clamp(16px, 2.4vw, 36px); }
+.about-cols h3 { font-size: clamp(1.7rem, 2.6vw, 2.3rem); margin: 10px 0 12px; }
+.about-cols p { color: var(--ink-2); font-size: .98rem; }
+.about-cols ul li { padding-block: 10px; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: .98rem; }
+.about-cols ul li b { font-weight: 500; color: var(--ink); }
+.about-cols ul li:first-child { padding-top: 4px; }
+.cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 34px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 6px; }
+.cta:hover { color: var(--accent); }
+
+
+/* 2. projects */
+.projects { padding-block: clamp(56px, 8vw, 120px) clamp(72px, 10vw, 150px); border-top: 1px solid var(--ink); }
+.proj-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 20px; }
+.proj-head h2 { font-size: clamp(3rem, 8vw, 7.6rem); letter-spacing: -.025em; line-height: .96; }
+.tabs { display: flex; gap: clamp(22px, 4vw, 56px); margin-top: clamp(28px, 4vw, 52px); border-bottom: 1px solid var(--line); }
+.tab { appearance: none; background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0 0 14px; cursor: pointer; font-family: var(--f-serif); font-weight: 300; font-size: clamp(1.7rem, 3.6vw, 3rem); letter-spacing: -.01em; color: var(--ink-2); display: inline-flex; align-items: baseline; gap: 10px; line-height: 1; transition: color .2s; }
+.tab sup { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; }
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.panel { padding-top: clamp(32px, 5vw, 72px); }
+.panel[hidden] { display: none; }
+.panel-intro { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(20px, 6vw, 110px); }
+.panel-intro p.big { font-family: var(--f-serif); font-size: clamp(1.45rem, 2.3vw, 2.1rem); font-weight: 300; line-height: 1.28; text-wrap: pretty; max-width: 40em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.chips li { border: 1px solid var(--line); padding: 6px 14px; font-size: .88rem; border-radius: 999px; color: var(--ink-2); }
+.proj { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(20px, 6vw, 110px); padding-block: clamp(40px, 6vw, 96px) 0; margin-top: clamp(40px, 6vw, 96px); border-top: 1px solid var(--line); }
+.proj-text { align-self: start; position: sticky; top: 92px; display: flex; flex-direction: column; gap: 12px; }
+.num { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; color: var(--ink-2); }
+.proj-text h3 { font-size: clamp(2.3rem, 4vw, 3.8rem); line-height: 1; }
+.place { font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; color: var(--ink-2); }
+.desc { margin-top: 10px; color: var(--ink-2); max-width: 44ch; }
+.gal { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); align-items: start; }
+.cell { margin: 0; min-width: 0; }
+.s5 { grid-column: span 5; } .s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s12 { grid-column: span 12; }
+.cell.drop { margin-top: clamp(24px, 6vw, 96px); }
+.cell > a { display: block; cursor: zoom-in; }
+.frame { display: block; aspect-ratio: var(--ar, 4/5); overflow: hidden; background: var(--bg-2); }
+.frame img, .frame video { width: 100%; height: 100%; object-fit: cover; transition: transform .9s cubic-bezier(.2, .6, .2, 1); }
+.cell > a:hover img { transform: scale(1.03); }
+.note-line { margin-top: clamp(28px, 4vw, 56px); }
+
+/* 3. contact */
+.band { background: var(--band); color: var(--band-ink); }
+.contact { padding-block: clamp(64px, 9vw, 130px); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 110px); align-items: start; }
+.contact .label { color: var(--band-ink-2); }
+.contact h2 { font-size: clamp(3rem, 7.6vw, 6.8rem); line-height: .96; letter-spacing: -.025em; margin-top: 20px; }
+.contact .intro { margin-top: 26px; color: var(--band-ink-2); max-width: 38ch; font-size: 1.05rem; }
+.direct { margin-top: clamp(28px, 4vw, 56px); border-top: 1px solid var(--band-line); }
+.direct div { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; padding-block: 13px; border-bottom: 1px solid var(--band-line); align-items: baseline; }
+.direct dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-ink-2); }
+.direct dd { margin: 0; font-size: 1.1rem; overflow-wrap: anywhere; }
+form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 28px; }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+.field label, .field legend { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-ink-2); padding: 0; }
+.field input, .field select, .field textarea { font: inherit; font-size: 1.05rem; color: var(--band-ink); background: transparent; border: 0; border-bottom: 1px solid var(--band-line); border-radius: 0; padding: 8px 0 10px; width: 100%; min-width: 0; outline: none; }
+.field select option { color: #1f1b17; background: #f3eee4; }
+.field textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+.field input:focus, .field select:focus, .field textarea:focus { border-bottom-color: var(--band-ink); box-shadow: 0 1px 0 var(--band-ink); }
+.field input::placeholder, .field textarea::placeholder { color: var(--band-ink-2); opacity: .7; }
+.field [aria-invalid="true"] { border-bottom-color: #ffbfa8; }
+.err { color: #ffd2c2; font-size: .85rem; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.radios { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px; }
+.radios label { font-family: var(--f-sans); text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--band-ink); cursor: pointer; }
+.radios input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.radios span { display: inline-block; padding: 8px 16px; border: 1px solid var(--band-line); transition: background .2s, color .2s; }
+.radios input:checked + span { background: var(--band-ink); color: var(--band); border-color: var(--band-ink); }
+.radios input:focus-visible + span { outline: 2px solid var(--band-ink); outline-offset: 2px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 14px 22px; border: 1px solid var(--band-ink); background: transparent; color: var(--band-ink); cursor: pointer; transition: background .2s, color .2s; }
+.btn:hover { background: var(--band-ink); color: var(--band); }
+.btn.solid { background: var(--band-ink); color: var(--band); }
+.btn.solid:hover { background: transparent; color: var(--band-ink); }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.note { font-size: .85rem; color: var(--band-ink-2); max-width: 46ch; }
+.compose { grid-column: 1 / -1; border: 1px solid var(--band-line); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.compose[hidden] { display: none; }
+.compose h3 { font-size: 1.7rem; }
+.compose p { color: var(--band-ink-2); font-size: .95rem; }
+.compose textarea { font: 400 .9rem/1.55 var(--f-mono); color: var(--band-ink); background: transparent; border: 1px solid var(--band-line); padding: 14px; width: 100%; min-height: 220px; resize: vertical; }
+.compose .acts { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.small { padding: 9px 14px; font-size: 11px; }
+.ok { font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; }
+footer { padding-block: 28px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+/* lightbox */
+.lbx { position: fixed; inset: 0; z-index: 100; background: var(--shade); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); }
+.lbx[hidden] { display: none; }
+.lbx img { max-width: min(1500px, 100%); max-height: calc(100dvh - 140px); width: auto; height: auto; object-fit: contain; }
+.lbx .cap { color: #efe9de; font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; text-align: center; max-width: 80ch; }
+.lbx button { position: absolute; background: transparent; border: 1px solid rgba(239, 233, 222, .5); color: #efe9de; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font: 400 20px/1 var(--f-sans); display: grid; place-items: center; }
+.lbx button:hover { background: rgba(239, 233, 222, .15); }
+.lbx .x { top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); }
+.lbx .p { left: max(12px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.lbx .n { right: max(12px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 1000px) {
+  .panel-intro, .proj, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 380px; }
+  .about-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 5fr); gap: 24px; }
+  .about .portrait { max-width: 100%; }
+  .about .portrait img { width: 100%; }
+  .proj-text { position: static; }
+  .about-cols { grid-template-columns: minmax(0, 1fr); }
+  .about-cols > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .site-header .wrap { flex-wrap: wrap; padding-block: 10px; gap: 6px; }
+  .nav { width: 100%; justify-content: space-between; }
+  .nav a[href="#principles"] { display: none; }
+  .mark i { font-size: 17px; }
+  .mark b { font-size: 21px; }
+  .tabs { gap: 20px; }
+  .tab { font-size: 1.45rem; }
+  .nav a { font-size: 11px; letter-spacing: .1em; }
+  form { grid-template-columns: minmax(0, 1fr); }
+  .s5, .s6, .s7 { grid-column: span 12; }
+  .reel-fallback { width: 175%; max-width: none; }
+  .cell.drop { margin-top: 0; }
+}
+@media (max-width: 560px) { .about-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; align-items: start; } }
+</style>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Noesis by Anastasia Orlova, back to top"><b>Noesis</b> <i>by Anastasia Orlova</i></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#principles">Principles</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch light and dark theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.2"/><path d="M12 3.8v16.4"/><path d="M12 3.8a8.2 8.2 0 0 1 0 16.4z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- 1. Opening -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <h1 id="hero-h">Where thought becomes <em>space</em>.</h1>
+      <div class="reel" id="reel" aria-label="Selected views of public and interior spaces. Move the mouse to steer, click an image to hold it.">
+        <div class="reel-track" id="reelTrack"><img src="img/hero.jpg" alt="Views of public and interior spaces: a vaulted nave, a lime-plaster bedroom, a library arcade, a lounge chair and a planted courtyard" decoding="async" fetchpriority="high" class="reel-fallback"></div>
+      </div>
+      <p class="reel-hint label" id="reelHint">Move the mouse to steer · click an image to hold it</p>
+    </div>
+  </section>
+
+  <!-- 2. About -->
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about-grid">
+        <figure class="portrait">
+          <img src="img/portrait.jpg" alt="Portrait of Anastasia Orlova" decoding="async">
+        </figure>
+        <div>
+          <span class="label">About me</span>
+          <h2 id="about-h">Who am I</h2>
+          <p class="lead">I am an urban planner and designer with an education at two of Europe's top architecture universities, the Politecnico of Turin and the Politecnico of Barcelona. I design both public and interior spaces.</p>
+          <p class="body">I design environments where every line, colour and reflection speaks of a deeper connection with place and people. My work grows from a love for art, aesthetics and design, and from a curiosity for neuroaesthetics: how spaces can transform lives.</p>
+          <p class="body">I am drawn to materials that tell stories, to the dialogue between function and beauty, and to spaces that feel alive, intentional and meaningful. Each project is an exploration of detail and experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Principles -->
+  <section class="principles" id="principles" aria-labelledby="princ-h">
+    <div class="wrap">
+      <span class="label">How I work</span>
+      <h2 id="princ-h">Principles</h2>
+      <div class="about-cols">
+        <div>
+          <span class="label">01</span>
+          <h3>Genius loci</h3>
+          <p>Every project starts from the place: its history, climate, light and the people who use it. Nothing is added that the site does not ask for.</p>
+        </div>
+        <div>
+          <span class="label">02</span>
+          <h3>Function and beauty</h3>
+          <p>A constant dialogue between the two. A space has to work every day, and it has to feel alive, intentional and meaningful.</p>
+        </div>
+        <div>
+          <span class="label">03</span>
+          <h3>Sustainability &amp; resilience</h3>
+          <p>Honest, durable and sustainable materials, climate-adaptive choices and nature-based solutions, so that places age well and can face change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Projects -->
+  <section class="projects" id="projects" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="proj-head">
+        <h2 id="proj-h">Projects</h2>
+        <span class="label">Concept visualisations · click an image to enlarge</span>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Project categories">
+        <button class="tab" role="tab" id="tab-public" aria-controls="panel-public" aria-selected="true" type="button">Public spaces <sup>03</sup></button>
+        <button class="tab" role="tab" id="tab-interior" aria-controls="panel-interior" aria-selected="false" tabindex="-1" type="button">Interior spaces <sup>04</sup></button>
+      </div>
+
+      <div class="panel" id="panel-public" role="tabpanel" aria-labelledby="tab-public">
+        <div class="panel-intro">
+          <span class="label">Public spaces design</span>
+          <div>
+            <p class="big">From the masterplan to the bench: I design public space at every scale, with strategies for development and city branding, regenerative and climate-adaptive use, and the conservation of cultural heritage and its conversion into places open to everyone, public or commercial.</p>
+            <ul class="chips" aria-label="Services">
+              <li>Masterplans</li><li>Development strategies</li><li>City branding</li><li>Public space design</li><li>Regenerative and climate-adaptive use</li><li>Cultural heritage conservation and conversion</li><li>Parks and green areas</li><li>Landscape design</li><li>Gardens and waterfronts</li>
+            </ul>
+          </div>
+        </div>
+        <article class="proj" id="beleno"><div class="proj-text"><span class="num">01</span><h3>Civic library project proposal</h3><p class="place">Venaria Reale</p><p class="tag">Adaptive reuse · Library · Public space</p><p class="desc">Where a barracks once closed ranks, the doors now open. The conversion of an existing ex-military barracks into a public library, with the public space around it as its reading room: a timber-lined portico, a quiet arcade and a street that invites you in.</p></div><div class="gal"><figure class="cell s7"><a class="lb" href="img/beleno-1.jpg" data-g="beleno" data-cap="Library front with timber portico"><span class="frame" style="--ar:4/5"><img src="img/beleno-1.jpg" alt="Library front with timber portico" loading="lazy" decoding="async"></span></a></figure><figure class="cell s5 drop"><a class="lb" href="img/beleno-2.jpg" data-g="beleno" data-cap="Arcade running along the library"><span class="frame" style="--ar:4/5"><img src="img/beleno-2.jpg" alt="Arcade running along the library" loading="lazy" decoding="async"></span></a></figure></div></article><article class="proj" id="settefonti"><div class="proj-text"><span class="num">02</span><h3>Medieval church ruins adaptive use proposal</h3><p class="place">Emilia Romagna</p><p class="tag">Heritage · Restoration and green hub</p><p class="desc">Antique ruins, kept as found and given a second life as a restoration and green hub. Brick vaults and lime-white walls frame linen drapes, timber platforms and olive trees: a new beginning for an abandoned place.</p></div><div class="gal"><figure class="cell s7"><a class="lb" href="img/settefonti-1.jpg" data-g="settefonti" data-cap="The nave, with drapes under the arches"><span class="frame" style="--ar:4/5"><img src="img/settefonti-1.jpg" alt="The nave, with drapes under the arches" loading="lazy" decoding="async"></span></a></figure><figure class="cell s5 drop"><a class="lb" href="img/settefonti-2.jpg" data-g="settefonti" data-cap="Timber platforms and sails beneath the vaults"><span class="frame" style="--ar:4/5"><img src="img/settefonti-2.jpg" alt="Timber platforms and sails beneath the vaults" loading="lazy" decoding="async"></span></a></figure></div></article><article class="proj" id="garden"><div class="proj-text"><span class="num">03</span><h3>Urban garden regeneration proposal</h3><p class="place">Venaria Reale</p><p class="tag">Abandoned buildings · Cultural green hub</p><p class="desc">Abandoned buildings become a cultural green hub. Brick arcades, courtyards and old halls are stitched together by planted beds, walnut benches, terracotta paths and light linen sails, turning leftover space into a garden the whole town can use.</p></div><div class="gal"><figure class="cell s5"><a class="lb" href="img/capelvenere-1.jpg" data-g="garden" data-cap="Brick arcade, linen sails and olive trees"><span class="frame" style="--ar:1/1"><img src="img/capelvenere-1.jpg" alt="Brick arcade, linen sails and olive trees" loading="lazy" decoding="async"></span></a></figure><figure class="cell s7 drop"><a class="lb" href="img/capelvenere-2.jpg" data-g="garden" data-cap="Timber pavilions among the planting"><span class="frame" style="--ar:1/1"><img src="img/capelvenere-2.jpg" alt="Timber pavilions among the planting" loading="lazy" decoding="async"></span></a></figure><figure class="cell s7"><a class="lb" href="img/montserrat-1.jpg" data-g="garden" data-cap="Walnut planters and shade sails"><span class="frame" style="--ar:4/5"><img src="img/montserrat-1.jpg" alt="Walnut planters and shade sails" loading="lazy" decoding="async"></span></a></figure><figure class="cell s5 drop"><a class="lb" href="img/montserrat-2.jpg" data-g="garden" data-cap="Garden path through the courtyard"><span class="frame" style="--ar:4/5"><img src="img/montserrat-2.jpg" alt="Garden path through the courtyard" loading="lazy" decoding="async"></span></a></figure></div></article>
+      </div>
+
+      <div class="panel" id="panel-interior" role="tabpanel" aria-labelledby="tab-interior" hidden>
+        <div class="panel-intro">
+          <span class="label">Interior spaces design</span>
+          <div>
+            <p class="big">I like to join the functional and the aesthetic. Each interior is read through the genius loci of its building and its neighbourhood, and built from sustainable, tactile materials, natural light and details made to be lived in.</p>
+            <ul class="chips" aria-label="Services">
+              <li>Concept and moodboard</li><li>Space planning</li><li>Materials and colour palette</li><li>Furniture and lighting</li><li>Sustainable materials</li><li>Genius loci</li>
+            </ul>
+          </div>
+        </div>
+        <article class="proj" id="cherry"><div class="proj-text"><span class="num">01</span><h3>Cherry Red &amp; Walnut</h3><p class="place">Residential</p><p class="tag">Mid-century modern</p><p class="desc">Walnut slats, soft white linen and cherry red accents. Sleep, rest and read in a palette that is warm, tactile and calm.</p></div><div class="gal"><figure class="cell s7"><a class="lb" href="img/cherry-1.jpg" data-g="cherry" data-cap="Bedroom with walnut slatted wall"><span class="frame" style="--ar:4/5"><img src="img/cherry-1.jpg" alt="Bedroom with walnut slatted wall" loading="lazy" decoding="async"></span></a></figure><figure class="cell s5 drop"><span class="frame" style="--ar:4/5"><video src="img/cherry-video.mp4" poster="img/cherry-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Bedroom, moving view"></video></span></figure><figure class="cell s6"><a class="lb" href="img/cherry-2.jpg" data-g="cherry" data-cap="Bedside detail with paper lantern"><span class="frame" style="--ar:4/5"><img src="img/cherry-2.jpg" alt="Bedside detail with paper lantern" loading="lazy" decoding="async"></span></a></figure><figure class="cell s6"><a class="lb" href="img/cherry-3.jpg" data-g="cherry" data-cap="Reading corner with leather lounge chair"><span class="frame" style="--ar:4/5"><img src="img/cherry-3.jpg" alt="Reading corner with leather lounge chair" loading="lazy" decoding="async"></span></a></figure></div></article><article class="proj" id="sand"><div class="proj-text"><span class="num">02</span><h3>Sand &amp; Stone</h3><p class="place">Residential</p><p class="tag">Mineral, quiet, Mediterranean</p><p class="desc">Lime plaster, travertine and pale oak under soft light: an interior that borrows the calm of a Mediterranean house.</p></div><div class="gal"><figure class="cell s7"><span class="frame" style="--ar:1/1"><video src="img/stone-video.mp4" poster="img/stone-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Bedroom with lime-plaster wall, moving view"></video></span></figure><figure class="cell s5 drop"><a class="lb" href="img/stone-1.jpg" data-g="sand" data-cap="Bedroom with arched steel door"><span class="frame" style="--ar:1/1"><img src="img/stone-1.jpg" alt="Bedroom with arched steel door" loading="lazy" decoding="async"></span></a></figure><figure class="cell s12"><a class="lb" href="img/stone-2.jpg" data-g="sand" data-cap="Kitchen with stone island"><span class="frame" style="--ar:16/10"><img src="img/stone-2.jpg" alt="Kitchen with stone island" loading="lazy" decoding="async"></span></a></figure></div></article><article class="proj" id="terra"><div class="proj-text"><span class="num">03</span><h3>Terracotta &amp; Olive</h3><p class="place">Residential</p><p class="tag">Warm and layered</p><p class="desc">Dark walnut and oak panelling warmed by terracotta, olive and brass: layered textiles and low light for evenings at home.</p></div><div class="gal"><figure class="cell s7"><a class="lb" href="img/terra-1.jpg" data-g="terra" data-cap="Bedroom with walnut panelling and rust armchair"><span class="frame" style="--ar:4/3"><img src="img/terra-1.jpg" alt="Bedroom with walnut panelling and rust armchair" loading="lazy" decoding="async"></span></a></figure><figure class="cell s5 drop"><a class="lb" href="img/terra-2.jpg" data-g="terra" data-cap="Oak-panelled bedroom with arched window"><span class="frame" style="--ar:4/3"><img src="img/terra-2.jpg" alt="Oak-panelled bedroom with arched window" loading="lazy" decoding="async"></span></a></figure></div></article><article class="proj" id="kaleido"><div class="proj-text"><span class="num">04</span><h3>Kaleidoscope</h3><p class="place">Residential</p><p class="tag">Colour, glass and craft</p><p class="desc">Coloured glass blocks and woven panels filter light into the room, a play of earth tones set against walnut and stone.</p></div><div class="gal"><figure class="cell s7"><a class="lb" href="img/kaleido-1.jpg" data-g="kaleido" data-cap="Bedroom with glass-block wall"><span class="frame" style="--ar:4/3"><img src="img/kaleido-1.jpg" alt="Bedroom with glass-block wall" loading="lazy" decoding="async"></span></a></figure><figure class="cell s5 drop"><a class="lb" href="img/kaleido-2.jpg" data-g="kaleido" data-cap="Stone-clad bedroom and woven colour panels"><span class="frame" style="--ar:4/3"><img src="img/kaleido-2.jpg" alt="Stone-clad bedroom and woven colour panels" loading="lazy" decoding="async"></span></a></figure></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contact -->
+  <section class="band contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="label">Projects and collaborations</span>
+          <h2 id="contact-h">Let's work together.</h2>
+          <p class="intro">I work worldwide. Tell me about the place and the brief, and I will reply with questions or a first proposal.</p>
+          <dl class="direct">
+            <div><dt>Email</dt><dd>noesis.arch@gmail.com</dd></div>
+          </dl>
+        </div>
+
+        <form id="enquiry" novalidate>
+          <fieldset class="field full">
+            <legend>I am writing about</legend>
+            <div class="radios">
+              <label><input type="radio" name="kind" value="Public space project" checked><span>Public space project</span></label>
+              <label><input type="radio" name="kind" value="Interior design project"><span>Interior design project</span></label>
+              <label><input type="radio" name="kind" value="Collaboration or competition team"><span>Collaboration</span></label>
+              <label><input type="radio" name="kind" value="Something else"><span>Something else</span></label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err" id="e-name" role="alert"></span></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" id="e-email" role="alert"></span></div>
+          <div class="field"><label for="f-org">Company or studio <span style="opacity:.7">(optional)</span></label><input id="f-org" name="org" type="text" autocomplete="organization"></div>
+          <div class="field"><label for="f-loc">Project location</label><input id="f-loc" name="loc" type="text" placeholder="City, country"></div>
+          <div class="field full"><label for="f-msg">About the project</label><textarea id="f-msg" name="msg" required placeholder="The site, what you want to achieve, and anything I should read or see first."></textarea><span class="err" id="e-msg" role="alert"></span></div>
+          <div class="form-actions">
+            <button class="btn solid" type="submit">Send request</button>
+            <span class="note">This page has no mail server. The button writes your message so you can copy it and send it from your own email.</span>
+          </div>
+          <div class="compose" id="compose" hidden>
+            <h3>Your message is ready</h3>
+            <p>Copy it and send it to <b>noesis.arch@gmail.com</b>. Nothing has been sent yet.</p>
+            <textarea id="composeText" readonly aria-label="Prepared message"></textarea>
+            <div class="acts">
+              <button class="btn solid small" type="button" id="copyBtn">Copy message</button>
+              <a class="btn small" id="mailLink" href="mailto:noesis.arch@gmail.com">Open in email app</a>
+              <span class="ok" id="copyState" role="status"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="label">© 2026 Noesis by Anastasia Orlova</span>
+    <span class="label">Public spaces · Interior spaces</span>
+  </div>
+</footer>
+
+<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="x" type="button" id="lbClose" aria-label="Close">×</button>
+  <button class="p" type="button" id="lbPrev" aria-label="Previous image">‹</button>
+  <img id="lbImg" src="" alt="">
+  <div class="cap" id="lbCap"></div>
+  <button class="n" type="button" id="lbNext" aria-label="Next image">›</button>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* theme */
+  var btn = document.getElementById('themeBtn');
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  try { var saved = localStorage.getItem('theme'); if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved); } catch (e) {}
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* tabs: public spaces / interior spaces */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    syncVideos();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); try { history.replaceState(null, '', '#' + t.id.replace('tab-', '')); } catch (e) {} });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true); }
+    });
+  });
+  function fromHash() {
+    var h = location.hash.replace('#', '');
+    if (h === 'interior') select(tabs[1]); else if (h === 'public') select(tabs[0]);
+  }
+  window.addEventListener('hashchange', fromHash); fromHash();
+
+  /* videos: play while visible, muted and looping; controls instead if motion is reduced */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = Array.prototype.slice.call(document.querySelectorAll('video[data-auto]'));
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) {
+    es.forEach(function (en) {
+      var v = en.target;
+      if (reduce) return;
+      if (en.isIntersecting && v.offsetParent !== null) { v.preload = 'auto'; var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+    });
+  }, { threshold: .35 }) : null;
+  vids.forEach(function (v) { if (reduce) v.controls = true; else if (io) io.observe(v); });
+  function syncVideos() { vids.forEach(function (v) { if (v.offsetParent === null) v.pause(); }); }
+
+
+
+  /* opening reel: drifts on its own, steers with the mouse, pauses on hover, holds on click */
+  (function () {
+    var reel = document.getElementById('reel'), track = document.getElementById('reelTrack');
+    if (!reel || !track) return;
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var list = [['settefonti-1','Medieval church ruins'],['cherry-1','Cherry Red & Walnut'],['beleno-1','Civic library'],['terra-1','Terracotta & Olive'],['capelvenere-1','Urban garden'],['stone-2','Sand & Stone'],['montserrat-1','Urban garden'],['kaleido-1','Kaleidoscope'],['beleno-2','Civic library'],['cherry-3','Cherry Red & Walnut'],['settefonti-2','Medieval church ruins'],['terra-2','Terracotta & Olive']];
+    var tiles = [], loaded = 0;
+    var holder = document.createDocumentFragment();
+    function make(src, alt) {
+      var f = document.createElement('figure'); f.className = 'tile';
+      var im = new Image(); im.src = 'img/' + src + '.jpg'; im.alt = alt; im.decoding = 'async'; im.draggable = false;
+      im.onload = function () { if (++loaded === list.length * 2) start(); };
+      f.appendChild(im); holder.appendChild(f); tiles.push(f); return f;
+    }
+    list.forEach(function (p) { make(p[0], p[1]); });
+    list.forEach(function (p) { make(p[0], ''); });
+    var x = 0, vel = 0, target = 0, half = 0, mx = .5, over = null, held = null, last = 0, running = false;
+    function measure() { half = track.scrollWidth / 2 + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) / 2; }
+    reel.addEventListener('pointermove', function (e) { var r = reel.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width; });
+    reel.addEventListener('pointerleave', function () { mx = .5; });
+    track.addEventListener('mouseover', function (e) { var t = e.target.closest('.tile'); if (t) { over = t; tiles.forEach(function (o) { o.classList.toggle('hot', o === t); }); } });
+    track.addEventListener('mouseout', function (e) { if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('.tile')) { over = null; tiles.forEach(function (o) { o.classList.remove('hot'); }); } });
+    track.addEventListener('click', function (e) {
+      var t = e.target.closest('.tile'); if (!t) return;
+      if (held === t) { held = null; t.classList.remove('held'); reel.classList.remove('paused'); } else { if (held) held.classList.remove('held'); held = t; t.classList.add('held'); reel.classList.add('paused'); }
+    });
+    function frame(ts) {
+      var dt = Math.min(.05, (ts - last) / 1000 || 0); last = ts;
+      target = held ? 0 : calm ? -14 : (-34 + (mx - .5) * -260) * (over ? .3 : 1);
+      vel += (target - vel) * Math.min(1, dt * 4);
+      x += vel * dt;
+      if (half) { if (x <= -half) x += half; if (x > 0) x -= half; }
+      track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      requestAnimationFrame(frame);
+    }
+    function start() {
+      if (running) return; running = true;
+      track.innerHTML = ''; track.appendChild(holder);
+      reel.classList.add('live'); measure(); window.addEventListener('resize', measure);
+      requestAnimationFrame(function (ts) { last = ts; frame(ts); });
+    }
+  })();
+
+  /* lightbox */
+  var lbx = document.getElementById('lbx'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  var groups = {}, cur = null, idx = 0, opener = null;
+  document.querySelectorAll('a.lb').forEach(function (a) {
+    var g = a.getAttribute('data-g'); (groups[g] = groups[g] || []).push(a);
+    a.addEventListener('click', function (e) { e.preventDefault(); opener = a; cur = g; idx = groups[g].indexOf(a); show(); lbx.hidden = false; document.getElementById('lbClose').focus(); document.body.style.overflow = 'hidden'; });
+  });
+  function show() {
+    var a = groups[cur][idx];
+    lbImg.src = a.getAttribute('href'); lbImg.alt = a.getAttribute('data-cap') || '';
+    lbCap.textContent = (a.getAttribute('data-cap') || '') + '  ·  ' + (idx + 1) + ' / ' + groups[cur].length;
+    var multi = groups[cur].length > 1;
+    document.getElementById('lbPrev').hidden = !multi; document.getElementById('lbNext').hidden = !multi;
+  }
+  function step(d) { var n = groups[cur].length; idx = (idx + d + n) % n; show(); }
+  function close() { lbx.hidden = true; lbImg.src = ''; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function () { step(-1); });
+  document.getElementById('lbNext').addEventListener('click', function () { step(1); });
+  lbx.addEventListener('click', function (e) { if (e.target === lbx) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lbx.hidden) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
+  });
+
+  /* enquiry form: compose a message, never claim it was sent */
+  var form = document.getElementById('enquiry');
+  var TO = 'noesis.arch@gmail.com';
+  function fail(id, input, msg) { document.getElementById(id).textContent = msg; if (input) input.setAttribute('aria-invalid', 'true'); }
+  function clear() { ['name', 'email', 'msg'].forEach(function (k) { document.getElementById('e-' + k).textContent = ''; }); form.querySelectorAll('[aria-invalid]').forEach(function (i) { i.removeAttribute('aria-invalid'); }); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); clear();
+    var f = form.elements, ok = true, first = null;
+    if (!f.name.value.trim()) { fail('e-name', f.name, 'Add your name.'); ok = false; first = first || f.name; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) { fail('e-email', f.email, 'Add an email address I can reply to.'); ok = false; first = first || f.email; }
+    if (!f.msg.value.trim()) { fail('e-msg', f.msg, 'Tell me a little about the project.'); ok = false; first = first || f.msg; }
+    if (!ok) { first.focus(); return; }
+    var kind = form.querySelector('input[name="kind"]:checked').value;
+    var subject = 'Project enquiry: ' + kind;
+    var lines = ['Hello Anastasia,', '', 'I am writing about: ' + kind];
+    if (f.loc.value.trim()) lines.push('Location: ' + f.loc.value.trim());
+    lines.push('', f.msg.value.trim(), '', 'Best regards,', f.name.value.trim() + (f.org.value.trim() ? ', ' + f.org.value.trim() : ''), f.email.value.trim());
+    var body = lines.join('\n');
+    document.getElementById('composeText').value = 'To: ' + TO + '\nSubject: ' + subject + '\n\n' + body;
+    document.getElementById('mailLink').href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('copyState').textContent = '';
+    var c = document.getElementById('compose'); c.hidden = false; c.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var ta = document.getElementById('composeText'), st = document.getElementById('copyState');
+    function fallback() { ta.focus(); ta.select(); st.textContent = 'Text selected. Press Ctrl+C or Cmd+C to copy.'; }
+    try { navigator.clipboard.writeText(ta.value).then(function () { st.textContent = 'Copied.'; }, fallback); } catch (err) { fallback(); }
+  });
+})();
+</script>
