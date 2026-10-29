@@ -14,6 +14,9 @@
   --ink-2: #5d564c;
   --line: #d6cfbf;
   --accent: #8a4b32;
+  --c-pub: #4a5a3f;
+  --c-int: #8a4b32;
+  --on-c: #f5f2eb;
   --band: #2b221c;
   --band-ink: #f3eee4;
   --band-ink-2: #c9bfae;
@@ -26,12 +29,12 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #15120f; --bg-2: #1e1a16; --ink: #efe9de; --ink-2: #a79e90; --line: #37312a; --accent: #d49a7d; --band: #0f0d0b;
+    --bg: #15120f; --bg-2: #1e1a16; --ink: #efe9de; --ink-2: #a79e90; --line: #37312a; --accent: #d49a7d; --band: #0f0d0b; --c-pub: #a9c08f; --c-int: #d49a7d; --on-c: #15120f;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #15120f; --bg-2: #1e1a16; --ink: #efe9de; --ink-2: #a79e90; --line: #37312a; --accent: #d49a7d; --band: #0f0d0b;
+  --bg: #15120f; --bg-2: #1e1a16; --ink: #efe9de; --ink-2: #a79e90; --line: #37312a; --accent: #d49a7d; --band: #0f0d0b; --c-pub: #a9c08f; --c-int: #d49a7d; --on-c: #15120f;
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -108,11 +111,20 @@ section { scroll-margin-top: 64px; }
 .projects { padding-block: clamp(56px, 8vw, 120px) clamp(72px, 10vw, 150px); border-top: 1px solid var(--ink); }
 .proj-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 20px; }
 .proj-head h2 { font-size: clamp(3rem, 8vw, 7.6rem); letter-spacing: -.025em; line-height: .96; }
-.tabs { display: flex; gap: clamp(22px, 4vw, 56px); margin-top: clamp(28px, 4vw, 52px); border-bottom: 1px solid var(--line); }
-.tab { appearance: none; background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0 0 14px; cursor: pointer; font-family: var(--f-serif); font-weight: 300; font-size: clamp(1.7rem, 3.6vw, 3rem); letter-spacing: -.01em; color: var(--ink-2); display: inline-flex; align-items: baseline; gap: 10px; line-height: 1; transition: color .2s; }
-.tab sup { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; }
-.tab:hover { color: var(--ink); }
-.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.tabs { display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(28px, 4vw, 52px); }
+.tab { --tc: var(--ink); appearance: none; border: 1.5px solid var(--tc); background: color-mix(in srgb, var(--tc) 9%, transparent); padding: clamp(14px, 1.6vw, 20px) clamp(20px, 2.6vw, 34px); cursor: pointer; font-family: var(--f-serif); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -.01em; color: var(--tc); display: inline-flex; align-items: baseline; gap: 12px; line-height: 1; transition: background .2s, color .2s, transform .2s; }
+.tab sup { font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em; }
+.tab::after { content: "\2192"; font-family: var(--f-sans); font-size: .7em; opacity: .7; transition: transform .2s; }
+#tab-public { --tc: var(--c-pub); }
+#tab-interior { --tc: var(--c-int); }
+.tab:hover { background: color-mix(in srgb, var(--tc) 20%, transparent); }
+.tab:hover::after { transform: translateX(4px); }
+.tab[aria-selected="true"] { background: var(--tc); color: var(--on-c); }
+.tab[aria-selected="true"]::after { content: "\2713"; opacity: 1; }
+#panel-public { --pc: var(--c-pub); }
+#panel-interior { --pc: var(--c-int); }
+.panel .place { color: var(--pc); }
+.panel .chips li { border-color: color-mix(in srgb, var(--pc) 55%, transparent); }
 .panel { padding-top: clamp(32px, 5vw, 72px); }
 .panel[hidden] { display: none; }
 .panel-intro { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(20px, 6vw, 110px); }
@@ -210,8 +222,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .nav a[href="#principles"] { display: none; }
   .mark i { font-size: 17px; }
   .mark b { font-size: 21px; }
-  .tabs { gap: 20px; }
-  .tab { font-size: 1.45rem; }
+  .tabs { gap: 10px; }
+  .tab { font-size: 1.3rem; padding: 12px 16px; gap: 8px; }
   .nav a { font-size: 11px; letter-spacing: .1em; }
   form { grid-template-columns: minmax(0, 1fr); }
   .s5, .s6, .s7 { grid-column: span 12; }
