@@ -562,10 +562,10 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     }
     if (f._honey && f._honey.value) return;
     btn.disabled = true; var label = btn.textContent; btn.textContent = 'Sending...';
-    fetch('https://formsubmit.co/ajax/' + TO, {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name: f.name.value.trim(), email: f.email.value.trim(), organisation: f.org.value.trim(), location: f.loc.value.trim(), project_type: kind, message: f.msg.value.trim(), _subject: subject + ' (noesisarch.github.io)', _replyto: f.email.value.trim(), _template: 'table', _captcha: 'false' })
+      body: JSON.stringify({ access_key: '5debedcc-b0c2-4bd8-a798-7b834f5799ea', subject: subject + ' (noesisarch.github.io)', from_name: 'Noesis website', name: f.name.value.trim(), email: f.email.value.trim(), replyto: f.email.value.trim(), project_type: kind, organisation: f.org.value.trim(), location: f.loc.value.trim(), message: f.msg.value.trim(), botcheck: '' })
     }).then(function (r) { return r.json(); }).then(function (j) {
       if (j && (j.success === true || j.success === 'true')) {
         sent.textContent = 'Thank you, ' + f.name.value.trim().split(' ')[0] + '. Your message has arrived and I will reply to ' + f.email.value.trim() + ' soon.';
