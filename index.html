@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
 <style>
 /* Editorial architecture portfolio. Quiet warm paper, large light serif display, hairline rules,
-   image-led layouts with staggered frames. One dark walnut band for the contact form. */
+   image-led layouts with staggered frames. One dark walnut band for the contact. */
 :root {
   --bg: #f5f2eb;
   --bg-2: #ebe6da;
@@ -159,41 +159,11 @@ section { scroll-margin-top: 64px; }
 .direct div { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; padding-block: 13px; border-bottom: 1px solid var(--band-line); align-items: baseline; }
 .direct dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-ink-2); }
 .direct dd { margin: 0; font-size: 1.1rem; overflow-wrap: anywhere; }
-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 28px; }
-.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.field.full { grid-column: 1 / -1; }
-.field label, .field legend { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-ink-2); padding: 0; }
-.field input, .field select, .field textarea { font: inherit; font-size: 1.05rem; color: var(--band-ink); background: transparent; border: 0; border-bottom: 1px solid var(--band-line); border-radius: 0; padding: 8px 0 10px; width: 100%; min-width: 0; outline: none; }
-.field select option { color: #1f1b17; background: #f3eee4; }
-.field textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
-.field input:focus, .field select:focus, .field textarea:focus { border-bottom-color: var(--band-ink); box-shadow: 0 1px 0 var(--band-ink); }
-.field input::placeholder, .field textarea::placeholder { color: var(--band-ink-2); opacity: .7; }
-.field [aria-invalid="true"] { border-bottom-color: #ffbfa8; }
-.err { color: #ffd2c2; font-size: .85rem; }
-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
-.radios { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px; }
-.radios label { font-family: var(--f-sans); text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--band-ink); cursor: pointer; }
-.radios input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.radios span { display: inline-block; padding: 8px 16px; border: 1px solid var(--band-line); transition: background .2s, color .2s; }
-.radios input:checked + span { background: var(--band-ink); color: var(--band); border-color: var(--band-ink); }
-.radios input:focus-visible + span { outline: 2px solid var(--band-ink); outline-offset: 2px; }
-.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 14px 22px; border: 1px solid var(--band-ink); background: transparent; color: var(--band-ink); cursor: pointer; transition: background .2s, color .2s; }
-.btn:hover { background: var(--band-ink); color: var(--band); }
-.btn.solid { background: var(--band-ink); color: var(--band); }
-.btn.solid:hover { background: transparent; color: var(--band-ink); }
-.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
-.note { font-size: .85rem; color: var(--band-ink-2); max-width: 46ch; }
-.compose { grid-column: 1 / -1; border: 1px solid var(--band-line); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-.compose[hidden] { display: none; }
-.sent { grid-column: 1 / -1; font-family: var(--f-serif); font-size: 1.6rem; line-height: 1.3; color: var(--band-ink); }
-.sent[hidden] { display: none; }
-.btn[disabled] { opacity: .55; cursor: wait; }
-.compose h3 { font-size: 1.7rem; }
-.compose p { color: var(--band-ink-2); font-size: .95rem; }
-.compose textarea { font: 400 .9rem/1.55 var(--f-mono); color: var(--band-ink); background: transparent; border: 1px solid var(--band-line); padding: 14px; width: 100%; min-height: 220px; resize: vertical; }
-.compose .acts { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.small { padding: 9px 14px; font-size: 11px; }
-.ok { font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; }
+.direct dd a { text-decoration: none; border-bottom: 1px solid var(--band-line); }
+.direct dd a:hover { border-bottom-color: var(--band-ink); }
+.qr { margin: 0; justify-self: start; display: flex; flex-direction: column; gap: 16px; }
+.qr svg { width: clamp(190px, 22vw, 280px); height: auto; display: block; }
+.qr figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--band-ink-2); }
 footer { padding-block: 28px; }
 footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
@@ -228,7 +198,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .tabs { gap: 10px; }
   .tab { font-size: 1.3rem; padding: 12px 16px; gap: 8px; }
   .nav a { font-size: 11px; letter-spacing: .1em; }
-  form { grid-template-columns: minmax(0, 1fr); }
   .s5, .s6, .s7 { grid-column: span 12; }
   .reel-fallback { width: 175%; max-width: none; }
   .cell.drop { margin-top: 0; }
@@ -353,43 +322,16 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <div>
           <span class="label">Projects and collaborations</span>
           <h2 id="contact-h">Let's work together.</h2>
-          <p class="intro">I work worldwide. Tell me about the place and the brief, and I will reply with questions or a first proposal.</p>
+          <p class="intro">I work worldwide. To commission a project, please contact me by email: tell me about the place and the brief, and I will reply with questions or a first proposal.</p>
           <dl class="direct">
-            <div><dt>Email</dt><dd>noesis.arch@gmail.com</dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:noesis.arch@gmail.com">noesis.arch@gmail.com</a></dd></div>
           </dl>
         </div>
 
-        <form id="enquiry" novalidate>
-          <fieldset class="field full">
-            <legend>I am writing about</legend>
-            <div class="radios">
-              <label><input type="radio" name="kind" value="Public space project" checked><span>Public space project</span></label>
-              <label><input type="radio" name="kind" value="Interior design project"><span>Interior design project</span></label>
-              <label><input type="radio" name="kind" value="Collaboration or competition team"><span>Collaboration</span></label>
-            </div>
-          </fieldset>
-          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err" id="e-name" role="alert"></span></div>
-          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" id="e-email" role="alert"></span></div>
-          <div class="field"><label for="f-org">Company or studio <span style="opacity:.7">(optional)</span></label><input id="f-org" name="org" type="text" autocomplete="organization"></div>
-          <div class="field"><label for="f-loc">Project location</label><input id="f-loc" name="loc" type="text" placeholder="City, country"></div>
-          <div class="field full"><label for="f-msg">About the project</label><textarea id="f-msg" name="msg" required placeholder="The site, what you want to achieve, and anything I should read or see first."></textarea><span class="err" id="e-msg" role="alert"></span></div>
-          <div class="form-actions">
-            <button class="btn solid" type="submit">Send request</button>
-            <span class="note">Your message goes straight to my inbox. I reply within a few days.</span>
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-            <div class="sent" id="sent" role="status" aria-live="polite" hidden></div>
-          </div>
-          <div class="compose" id="compose" hidden>
-            <h3>Send it from your email instead</h3>
-            <p>The form could not send automatically. Copy this message and send it to <b>noesis.arch@gmail.com</b>. Nothing has been sent yet.</p>
-            <textarea id="composeText" readonly aria-label="Prepared message"></textarea>
-            <div class="acts">
-              <button class="btn solid small" type="button" id="copyBtn">Copy message</button>
-              <a class="btn small" id="mailLink" href="mailto:noesis.arch@gmail.com">Open in email app</a>
-              <span class="ok" id="copyState" role="status"></span>
-            </div>
-          </div>
-        </form>
+        <figure class="qr">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 37 37" shape-rendering="crispEdges" role="img" aria-label="QR code: email noesis.arch@gmail.com"><rect x="-4" y="-4" width="37" height="37" fill="#fff"/><path fill="#1f1b17" d="M0 0h7v1h-7zM10 0h2v1h-2zM13 0h3v1h-3zM17 0h4v1h-4zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h3v1h-3zM13 1h4v1h-4zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM12 2h2v1h-2zM15 2h1v1h-1zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h3v1h-3zM14 3h2v1h-2zM17 3h1v1h-1zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h3v1h-3zM15 4h6v1h-6zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM12 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM8 7h3v1h-3zM14 7h1v1h-1zM16 7h1v1h-1zM18 7h1v1h-1zM20 7h1v1h-1zM0 8h1v1h-1zM2 8h5v1h-5zM9 8h2v1h-2zM16 8h4v1h-4zM22 8h5v1h-5zM0 9h3v1h-3zM4 9h2v1h-2zM8 9h3v1h-3zM13 9h3v1h-3zM17 9h4v1h-4zM22 9h7v1h-7zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h1v1h-1zM10 10h2v1h-2zM13 10h5v1h-5zM20 10h2v1h-2zM23 10h2v1h-2zM7 11h1v1h-1zM12 11h2v1h-2zM15 11h1v1h-1zM18 11h3v1h-3zM22 11h1v1h-1zM25 11h1v1h-1zM4 12h3v1h-3zM9 12h2v1h-2zM12 12h1v1h-1zM14 12h2v1h-2zM17 12h1v1h-1zM21 12h1v1h-1zM25 12h4v1h-4zM1 13h3v1h-3zM7 13h4v1h-4zM15 13h2v1h-2zM18 13h8v1h-8zM27 13h2v1h-2zM0 14h1v1h-1zM3 14h1v1h-1zM6 14h1v1h-1zM8 14h2v1h-2zM11 14h2v1h-2zM17 14h2v1h-2zM22 14h2v1h-2zM0 15h1v1h-1zM2 15h4v1h-4zM11 15h1v1h-1zM14 15h1v1h-1zM16 15h1v1h-1zM21 15h2v1h-2zM24 15h2v1h-2zM0 16h1v1h-1zM2 16h2v1h-2zM6 16h1v1h-1zM8 16h3v1h-3zM16 16h2v1h-2zM23 16h1v1h-1zM26 16h2v1h-2zM0 17h1v1h-1zM4 17h2v1h-2zM8 17h2v1h-2zM11 17h5v1h-5zM17 17h2v1h-2zM20 17h9v1h-9zM0 18h1v1h-1zM2 18h2v1h-2zM5 18h2v1h-2zM9 18h1v1h-1zM12 18h6v1h-6zM21 18h1v1h-1zM23 18h4v1h-4zM0 19h1v1h-1zM2 19h1v1h-1zM5 19h1v1h-1zM8 19h1v1h-1zM11 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM23 19h2v1h-2zM0 20h1v1h-1zM2 20h1v1h-1zM4 20h3v1h-3zM8 20h2v1h-2zM11 20h1v1h-1zM14 20h2v1h-2zM17 20h1v1h-1zM19 20h8v1h-8zM28 20h1v1h-1zM8 21h2v1h-2zM12 21h1v1h-1zM15 21h4v1h-4zM20 21h1v1h-1zM24 21h1v1h-1zM26 21h3v1h-3zM0 22h7v1h-7zM10 22h1v1h-1zM12 22h1v1h-1zM19 22h2v1h-2zM22 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h5v1h-5zM14 23h1v1h-1zM16 23h1v1h-1zM19 23h2v1h-2zM24 23h2v1h-2zM27 23h1v1h-1zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM8 24h1v1h-1zM10 24h3v1h-3zM16 24h1v1h-1zM18 24h1v1h-1zM20 24h5v1h-5zM26 24h1v1h-1zM28 24h1v1h-1zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h1v1h-1zM10 25h3v1h-3zM14 25h2v1h-2zM17 25h4v1h-4zM25 25h2v1h-2zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h8v1h-8zM22 26h3v1h-3zM26 26h2v1h-2zM0 27h1v1h-1zM6 27h1v1h-1zM14 27h2v1h-2zM17 27h2v1h-2zM20 27h2v1h-2zM23 27h1v1h-1zM25 27h1v1h-1zM27 27h1v1h-1zM0 28h7v1h-7zM8 28h2v1h-2zM15 28h1v1h-1zM19 28h1v1h-1zM21 28h3v1h-3zM26 28h1v1h-1z"/></svg>
+          <figcaption>Scan to write to me</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -534,49 +476,5 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
   });
 
-  /* enquiry form: sends via FormSubmit; falls back to a copyable message if sending fails */
-  var form = document.getElementById('enquiry');
-  var TO = 'noesis.arch@gmail.com';
-  function fail(id, input, msg) { document.getElementById(id).textContent = msg; if (input) input.setAttribute('aria-invalid', 'true'); }
-  function clear() { ['name', 'email', 'msg'].forEach(function (k) { document.getElementById('e-' + k).textContent = ''; }); form.querySelectorAll('[aria-invalid]').forEach(function (i) { i.removeAttribute('aria-invalid'); }); }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); clear();
-    var f = form.elements, ok = true, first = null;
-    if (!f.name.value.trim()) { fail('e-name', f.name, 'Add your name.'); ok = false; first = first || f.name; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) { fail('e-email', f.email, 'Add an email address I can reply to.'); ok = false; first = first || f.email; }
-    if (!f.msg.value.trim()) { fail('e-msg', f.msg, 'Tell me a little about the project.'); ok = false; first = first || f.msg; }
-    if (!ok) { first.focus(); return; }
-    var kind = form.querySelector('input[name="kind"]:checked').value;
-    var subject = 'Project enquiry: ' + kind;
-    var lines = ['Hello Anastasia,', '', 'I am writing about: ' + kind];
-    if (f.loc.value.trim()) lines.push('Location: ' + f.loc.value.trim());
-    lines.push('', f.msg.value.trim(), '', 'Best regards,', f.name.value.trim() + (f.org.value.trim() ? ', ' + f.org.value.trim() : ''), f.email.value.trim());
-    var body = lines.join('\n');
-    var sent = document.getElementById('sent'), compose = document.getElementById('compose'), btn = form.querySelector('button[type="submit"]');
-    sent.hidden = true; compose.hidden = true;
-    function fallback() {
-      document.getElementById('composeText').value = 'To: ' + TO + '\nSubject: ' + subject + '\n\n' + body;
-      document.getElementById('mailLink').href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      document.getElementById('copyState').textContent = '';
-      compose.hidden = false; compose.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-    if (f._honey && f._honey.value) return;
-    btn.disabled = true; var label = btn.textContent; btn.textContent = 'Sending...';
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ access_key: '5debedcc-b0c2-4bd8-a798-7b834f5799ea', subject: subject + ' (noesisarch.github.io)', from_name: 'Noesis website', name: f.name.value.trim(), email: f.email.value.trim(), replyto: f.email.value.trim(), project_type: kind, organisation: f.org.value.trim(), location: f.loc.value.trim(), message: f.msg.value.trim(), botcheck: '' })
-    }).then(function (r) { return r.json(); }).then(function (j) {
-      if (j && (j.success === true || j.success === 'true')) {
-        sent.textContent = 'Thank you, ' + f.name.value.trim().split(' ')[0] + '. Your message has arrived and I will reply to ' + f.email.value.trim() + ' soon.';
-        sent.hidden = false; form.reset(); sent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else { fallback(); }
-    }).catch(fallback).then(function () { btn.disabled = false; btn.textContent = label; });
-  });
-  document.getElementById('copyBtn').addEventListener('click', function () {
-    var ta = document.getElementById('composeText'), st = document.getElementById('copyState');
-    function fallback() { ta.focus(); ta.select(); st.textContent = 'Text selected. Press Ctrl+C or Cmd+C to copy.'; }
-    try { navigator.clipboard.writeText(ta.value).then(function () { st.textContent = 'Copied.'; }, fallback); } catch (err) { fallback(); }
-  });
 })();
 </script>
